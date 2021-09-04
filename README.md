@@ -1,4 +1,3 @@
-
 #Robots
 
 This is a repository that contains my (SKIV-2611) solutions of my uni tasks in Julia using HorizonSideRobots.jl package.
