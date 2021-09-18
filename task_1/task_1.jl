@@ -18,7 +18,6 @@ end
 
 """
 Putting markers in direction specified by side::HorizonSide variable and returning the robot back to its initial position
-
 """
 function directions!(r::Robot, side::HorizonSide)::Nothing
     while !isborder(r, side)
