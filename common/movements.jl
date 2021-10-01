@@ -32,3 +32,17 @@ function movements!(r::Robot, steps::Integer, side::HorizonSide; marker::Bool = 
         end
     end
 end
+
+"""
+Moving a robot on a specified number of steps or till northern border 
+"""
+function movements!(r::Robot, steps::Integer, side::HorizonSide; northern::Bool = true)::Nothing
+    if northern
+        for _ = 1:steps
+            move!(r, side)
+            if !isborder(r, Nord)
+                break
+            end
+        end
+    end
+end
