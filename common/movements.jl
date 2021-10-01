@@ -18,3 +18,17 @@ function movements!(r::Robot, steps::Integer, side::HorizonSide)::Nothing
         move!(r, side)
     end
 end
+
+"""
+Moving a robot on a specified number of steps or till the marker
+"""
+function movements!(r::Robot, steps::Integer, side::HorizonSide; marker::Bool = true)::Nothing
+    if marker
+        for _ = 1:steps
+            move!(r, side)
+            if ismarker(r)
+                break
+            end
+        end
+    end
+end
