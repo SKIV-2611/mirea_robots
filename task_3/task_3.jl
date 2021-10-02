@@ -1,6 +1,7 @@
 function put_all_markers!(r::Robot)::Nothing
     coords::Tuple{Integer, Integer} = move_to_SW_corner!(r)
     mark_all_field!(r)
+    move_to_SW!(r)
     move_back!(r, coords)
 end
 
@@ -21,24 +22,29 @@ function mark_row!(r::Robot, side::HorizonSide)::Nothing
     putmarker!(r)
 end
 
-function switch_direction!(side::HorizonSide, r::Robot)::HorizonSide
-    move!(r, Nord)
-    if side == West
-        return Ost
-    else
-        return West
-    end
-end
+
 
 include("..\\common\\movements.jl")
+
 function move_to_SW_corner!(r::Robot)::Tuple{Integer, Integer}
-    y = movements!(r, Sud)
     x = movements!(r, West)
+    y = movements!(r, Sud)
+    print(x, y)
     return (x, y)
+end
+function move_to_SW!(r::Robot)
+    x = movements!(r, West)
+    y = movements!(r, Sud)
 end
 
 function move_back!(r::Robot, initial_coords::Tuple{Integer, Integer})::Nothing
-    move_to_SW_corner!(r)
-    movements!(r, initial_coords[1], West)
-    movements!(r, initial_coords[2], Nord)
+    movements!(r, Ost, initial_coords[1])
+    movements!(r, Nord, initial_coords[2])
+end
+
+include("..\\common\\revert.jl")
+function switch_direction!(side::HorizonSide, r::Robot)::HorizonSide
+    move!(r, Nord)
+    side = revert!(side)
+    return side
 end
