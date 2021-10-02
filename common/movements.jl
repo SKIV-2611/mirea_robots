@@ -13,7 +13,7 @@ end
 """
 Moving a robot on a specified number of steps
 """
-function movements!(r::Robot, steps::Integer, side::HorizonSide)::Nothing
+function movements!(r::Robot, side::HorizonSide, steps::Integer)::Nothing
     for _ = 1:steps
         move!(r, side)
     end
