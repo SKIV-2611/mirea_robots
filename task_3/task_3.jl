@@ -29,12 +29,11 @@ include("..\\common\\movements.jl")
 function move_to_SW_corner!(r::Robot)::Tuple{Integer, Integer}
     x = movements!(r, West)
     y = movements!(r, Sud)
-    print(x, y)
     return (x, y)
 end
 function move_to_SW!(r::Robot)
-    x = movements!(r, West)
-    y = movements!(r, Sud)
+    movements!(r, West)
+    movements!(r, Sud)
 end
 
 function move_back!(r::Robot, initial_coords::Tuple{Integer, Integer})::Nothing
