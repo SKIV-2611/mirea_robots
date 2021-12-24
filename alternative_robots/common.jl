@@ -28,7 +28,6 @@ function try_move!(robot, side)::Bool
 
     state = isborder(robot, side)
     if !state
-        println("rectangle")
         move!(robot, side)
         while isborder(robot, right) && !isborder(robot, side)
             move!(robot, side)
@@ -50,7 +49,6 @@ function movements!(robot, side)
     n = 0
     while try_move!(robot, side)
         n += 1
-        println(n)
     end
     return n
 end
