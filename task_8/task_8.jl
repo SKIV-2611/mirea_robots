@@ -1,5 +1,7 @@
 include("..\\common\\movements.jl")
-function find_hole!(r::Robot)
+
+solve(r) = find_hole!(r)
+function find_hole!(r)
     steps = 1
     sides = [Ost, West]
     while isborder(r, Nord)
