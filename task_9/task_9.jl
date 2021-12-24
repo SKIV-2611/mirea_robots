@@ -1,5 +1,7 @@
 include("..\\common\\movements.jl")
-function find_marker!(r::Robot)
+
+#solve(r) = find_marker!(r)
+function find_marker!(r)
     sides = [Nord, Ost, Sud, West]
     numsteps = 1
     odd::Bool = false
@@ -10,7 +12,11 @@ function find_marker!(r::Robot)
             if marker
                 break
             end
-            movements!(r, numsteps, side; marker=true)
+            n = 0
+            while !ismarker(r) && n < numsteps
+                move!(r, side)
+                n += 1
+            end
             if odd
                 numsteps += 1
             end
