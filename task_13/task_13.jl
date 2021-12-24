@@ -37,7 +37,6 @@ end
 include("..\\common\\revert.jl")
 function move_back!(r::Robot, side::Union{NTuple{2, HorizonSide}, Vector{HorizonSide}}, steps::Integer)
     side = revert!.(side)
-    print(steps)
     for _ = 1:steps
         move_tuple!(r, side)
     end
