@@ -1,7 +1,7 @@
 """
 Moving a robot to border.
 """
-function movements!(r::Robot, side::HorizonSide)::Integer
+function movements!(r, side)::Integer
     i::Integer = 0
     while !isborder(r, side)
         move!(r, side)
@@ -13,7 +13,7 @@ end
 """
 Moving a robot on a specified number of steps
 """
-function movements!(r::Robot, side::HorizonSide, steps::Integer)::Nothing
+function movements!(r, side, steps::Integer)::Nothing
     for _ = 1:steps
         move!(r, side)
     end
