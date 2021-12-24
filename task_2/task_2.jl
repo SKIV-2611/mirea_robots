@@ -4,6 +4,11 @@
 Результат: Робот - в исходном положении, и все клетки по периметру внешней рамки промаркированы
 
 """
+function solve(r)
+    move_to_border!(r)
+end
+
+
 function move_to_border!(r::Robot)
     i::Integer = 0
     back::HorizonSide = HorizonSide(3)
