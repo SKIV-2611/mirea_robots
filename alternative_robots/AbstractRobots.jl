@@ -51,6 +51,7 @@ isborder(robot::BorderRobot, side) = isborder(robot.robot, side)
 putmarker!(robot::BorderRobot) = putmarker!(robot.robot)
 ismarker(robot::BorderRobot) = ismarker(robot.robot)
 temperature(robot::BorderRobot) = temperature(robot.robot)
+get_coord(robot::BorderRobot{CoordRobot}) = get_coord(robot.robot)
 
 struct PutmarkersRobot{TypeRobot}
     robot::TypeRobot
