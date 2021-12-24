@@ -55,7 +55,6 @@ end
 
 function move_back!(r::Robot, initial_coords::Tuple{Integer, Integer, Bool})::Nothing
     move_to_SW_corner!(r)
-    print(initial_coords)
     movements!(r, Ost, initial_coords[1])
     movements!(r, Nord, initial_coords[2])
 end
