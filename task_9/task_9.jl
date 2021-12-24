@@ -1,6 +1,6 @@
 include("..\\common\\movements.jl")
 
-#solve(r) = find_marker!(r)
+solve(r) = find_marker!(r)
 function find_marker!(r)
     sides = [Nord, Ost, Sud, West]
     numsteps = 1
