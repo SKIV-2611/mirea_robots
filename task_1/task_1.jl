@@ -9,6 +9,7 @@
 """
 Making a cross with the center at the starting point
 """
+solve(r) = cross!(r)
 function cross!(r::Robot)::Nothing
     for i = 0:3
         directions!(r, HorizonSide(i))
